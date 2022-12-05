@@ -19,6 +19,7 @@ public class Product implements Serializable {
     }
 
     // Getters and setters
+    // They are used by JSF to access/change the fields of our object
     // -------------------
 
     public String getName(){
