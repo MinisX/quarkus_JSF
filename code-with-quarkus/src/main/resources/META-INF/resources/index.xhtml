@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+  <!-- Namespace are used to apply JSF specific tags. So head tag for example isnt default xhtml tag, but JSF custom tag-->
+
+  <h:head>
+
+  </h:head>
+
+  <h:body>
+
+    <h:form>
+        <!-- Here we define a label with ID-->
+        <h:outputLabel for="txtName">
+            <h:outputText value="Enter product name"/>
+        </h:outputLabel>
+
+        <!-- Here we link label with textField 
+        and then assign the input value to the variable in our Java class by writing #{name}
+        But we need to access the variable from the object. Object is created by ManagedBean in Product.java
+        I have called the object "obj", so to access the name I should write "#{obj.name}"-->
+        <h:inputText id="txtName" value="#{obj.name}"/>
+
+        <br/>
+
+        <h:outputLabel for="txtQuantity">
+            <h:outputText value="Enter product quantity"/>
+        </h:outputLabel>
+        <h:inputText id="txtQuantity" value="#{obj.quantity}"/>
+
+        <br/>
+
+        <h:outputLabel for="txtPrice">
+            <h:outputText value="Enter product price"/>
+        </h:outputLabel>
+        <h:inputText id="txtPrice" value="#{obj.price}"/>
+
+        <br/>
+        <!-- Here we define which method is called when button is pressed-->
+        <h:commandButton id="cmdInsert" value="Add item" action="#{obj.add}"/>
+
+    </h:form>
+
+  </h:body>
+</html>
