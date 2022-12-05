@@ -51,6 +51,8 @@ public class Product implements Serializable {
     public String add(){
         System.out.println("Product inserted");
         System.out.println(name + " " + this.quantity + " " + price);
+
+        // Here we return success.xhtml as result
         return "success";
     }
 }
