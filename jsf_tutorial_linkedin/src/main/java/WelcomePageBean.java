@@ -1,3 +1,4 @@
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
@@ -35,5 +36,11 @@ public class WelcomePageBean {
     public String navigateToFlashPage(){
         FacesContext.getCurrentInstance().getExternalContext().getFlash().put("transmittedVariable", welcomeUserName + " sent this");
         return "flashscope.xhtml";
+    }
+
+    // with this annotation we call the method on construction of the object
+    @PostConstruct
+    public void test(){
+        System.out.println("we are in test");
     }
 }
