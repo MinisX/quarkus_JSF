@@ -35,12 +35,16 @@ public class WelcomePageBean {
     // Here we use FlashScope to transmit a variable to another page
     public String navigateToFlashPage(){
         FacesContext.getCurrentInstance().getExternalContext().getFlash().put("transmittedVariable", welcomeUserName + " sent this");
-        return "flashscope.xhtml";
+        return "flashscope.xhtml?faces-redirect=true";
     }
 
-    // with this annotation we call the method on construction of the object
-    @PostConstruct
-    public void test(){
-        System.out.println("we are in test");
+    public void isRefreshed(){
+        // A Postback is an action taken by an interactive webpage, when the entire page and its contents are sent to the server for processing some
+        // information and then, the server posts the same page back to the browser.
+        // This method returns true or false
+        FacesContext.getCurrentInstance().isPostback();
+
+        // Here we check whether a validation error has occurred during rendering.
+        FacesContext.getCurrentInstance().validationFailed();
     }
 }

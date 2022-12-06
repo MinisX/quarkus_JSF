@@ -8,8 +8,8 @@
 </h:head>
 <h:body>
     <h:panelGrid columns="2">
-        <h:outputLabel value="From the FlashScope: "/>
-        <h:outputText value="#{flash.transmittedVariable}"/>
+        <h:outputLabel for = "transmittedText" value="From the FlashScope: "/>
+        <h:outputText value="#{flash.transmittedVariable}" id="transmittedText"/>
         <!-- Here in outputText we get access to our variable transmitted over FlashScope defined in WelcomePageBean
          in navigateToFlashPage() method-->
     </h:panelGrid>
