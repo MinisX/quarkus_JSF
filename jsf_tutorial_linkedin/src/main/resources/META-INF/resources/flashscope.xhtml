@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head>
+    <title>FlashScope demo</title>
+</h:head>
+<h:body>
+    <h:panelGrid columns="2">
+        <h:outputLabel value="From the FlashScope: "/>
+        <h:outputText value="#{flash.transmittedVariable}"/>
+        <!-- Here in outputText we get access to our variable transmitted over FlashScope defined in WelcomePageBean
+         in navigateToFlashPage() method-->
+    </h:panelGrid>
+</h:body>
+</html>

@@ -21,6 +21,7 @@
               <h:inputText value ="#{welcomePageBean.welcomeUserName}" id="inputTextBox"/>
               <h:commandButton value="Say Hello" action="#{welcomePageBean.sayHello()}"/>
               <h:outputText value="#{welcomePageBean.completedGreeting}"/>
+              <h:commandButton value="Navigate!" action="#{welcomePageBean.navigateToFlashPage()}"/>
           </h:panelGrid>
       </h:form>
 

@@ -1,8 +1,10 @@
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 @Named("welcomePageBean")
-// An object which is defined as @RequestScoped is created once for every request and is shared by all the bean that inject it throughout a request.
+// This scope specifies that this backing bean class should be instantiated at the beginning of
+// a JSF page request and then be destroyed right after the request is complete, that is, when the page has completely loaded.
 @RequestScoped
 public class WelcomePageBean {
 
@@ -27,5 +29,11 @@ public class WelcomePageBean {
 
     public void sayHello(){
         completedGreeting = "Hello, " + this.welcomeUserName;
+    }
+
+    // Here we use FlashScope to transmit a variable to another page
+    public String navigateToFlashPage(){
+        FacesContext.getCurrentInstance().getExternalContext().getFlash().put("transmittedVariable", welcomeUserName + " sent this");
+        return "flashscope.xhtml";
     }
 }
