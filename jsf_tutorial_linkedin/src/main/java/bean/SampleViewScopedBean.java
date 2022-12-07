@@ -1,3 +1,5 @@
+package bean;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.faces.context.FacesContext;

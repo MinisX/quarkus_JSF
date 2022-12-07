@@ -1,3 +1,7 @@
+package dao;
+
+import dto.Dessert;
+
 import java.util.LinkedList;
 import java.util.List;
 import javax.annotation.PostConstruct;

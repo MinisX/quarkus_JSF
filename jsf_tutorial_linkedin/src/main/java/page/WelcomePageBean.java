@@ -1,3 +1,7 @@
+package page;
+
+import bean.SampleViewScopedBean;
+
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -36,7 +40,7 @@ public class WelcomePageBean {
 
     // Here we use FlashScope to transmit a variable to another page
     public String navigateToFlashPage(){
-        // Here we are transmitting the list of dogs from SampleViewScopedBean
+        // Here we are transmitting the list of dogs from bean.SampleViewScopedBean
         FacesContext.getCurrentInstance().getExternalContext().getFlash().put("transmittedVariable", viewBean.getDogs().get(0));
         return "flashscope.xhtml?faces-redirect=true";
     }
