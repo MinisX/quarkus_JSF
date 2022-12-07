@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head>
+    <title>Facelet Title</title>
+</h:head>
+
+<!-- inputServer is a field for a password -->
+<!-- inputTextarea we define how wide we want the text area to be by setting the cols attribute. -->
+<h:body>
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel for="password" value="Please enter a password:"/>
+            <h:inputSecret id="password"/>
+            <h:outputLabel for="textArea" value="This is a text area"/>
+            <h:inputTextarea id="textArea" cols="8" rows="10"/>
+        </h:panelGrid>
+    </h:form>
+
+</h:body>
+</html>
