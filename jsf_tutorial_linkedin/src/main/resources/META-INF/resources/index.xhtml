@@ -25,7 +25,7 @@
           <!-- On line 20 we tie the outputLabel to inputText with for attribute. This way when we press on the label, it activates the input field-->
           <h:panelGrid columns="2">
               <h:outputLabel for="inputTextBox" value ="Enter a name here" />
-              <h:inputText disabled="true" value="#{welcomePageBean.welcomeUserName}" id="inputTextBox"/>
+              <h:inputText disabled="false" value="#{welcomePageBean.welcomeUserName}" id="inputTextBox"/>
               <h:commandButton value="Say Hello" action="#{welcomePageBean.sayHello()}"/>
               <h:outputText value="#{welcomePageBean.completedGreeting}"/>
               <h:commandButton value="Navigate!" action="#{welcomePageBean.navigateToFlashPage()}"/>
