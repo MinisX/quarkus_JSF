@@ -7,6 +7,7 @@
 
   <f:metadata>
       <f:viewParam name="guest" value="#{welcomePageBean.welcomeUserName}" maxlength="25" required="#{!facesContext.postback}" requiredMessage="please provide a guest name"/>
+      <f:viewAction action="#{welcomePageBean.sayHello()}"/>
   </f:metadata>
 
   <h:head>
