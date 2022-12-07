@@ -8,12 +8,17 @@
   <h:head>
     <title>Facelet Title</title>
   </h:head>
+  <!-- We have to use view tag to avoid " Parent UIComponent j_id_5 should be instance of UIViewRoot " error -->
   <h:body>
+      <f:metadata>
+          <f:viewParam name="guest" value="#{welcomePageBean.welcomeUserName}" maxlength="25" required="#{!facesContext.postback}" requiredMessage="please provide a guest name"/>
+      </f:metadata>
       <!-- An HTML form is a section of a document which contains controls such as text fields,
       password fields, checkboxes, radio buttons, submit button, menus etc. -->
       <h:form>
           <!-- In JSF , “h:panelGrid” tag is used to generate HTML table tags to place JSF components in rows and columns layout,
           from left to right, top to bottom. -->
+
 
           <!-- On line 20 we tie the outputLabel to inputText with for attribute. This way when we press on the label, it activates the input field-->
           <h:panelGrid columns="2">
@@ -22,7 +27,9 @@
               <h:commandButton value="Say Hello" action="#{welcomePageBean.sayHello()}"/>
               <h:outputText value="#{welcomePageBean.completedGreeting}"/>
               <h:commandButton value="Navigate!" action="#{welcomePageBean.navigateToFlashPage()}"/>
+              <h:panelGroup />
           </h:panelGrid>
+          <!-- panelGroup is used as a dummy to not get error regarding panelGrid not having enough children-->
       </h:form>
 
   </h:body>

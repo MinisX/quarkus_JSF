@@ -1,6 +1,6 @@
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 @Named("welcomePageBean")
@@ -11,6 +11,8 @@ public class WelcomePageBean {
 
     private String welcomeUserName;
     private String completedGreeting;
+    @Inject
+    SampleViewScopedBean viewBean;
 
     public String getWelcomeUserName() {
         return welcomeUserName;
@@ -34,7 +36,8 @@ public class WelcomePageBean {
 
     // Here we use FlashScope to transmit a variable to another page
     public String navigateToFlashPage(){
-        FacesContext.getCurrentInstance().getExternalContext().getFlash().put("transmittedVariable", welcomeUserName + " sent this");
+        // Here we are transmitting the list of dogs from SampleViewScopedBean
+        FacesContext.getCurrentInstance().getExternalContext().getFlash().put("transmittedVariable", viewBean.getDogs().get(0));
         return "flashscope.xhtml?faces-redirect=true";
     }
 
