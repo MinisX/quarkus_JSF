@@ -6,9 +6,18 @@
 <h:head>
     <title>Facelet Title</title>
 </h:head>
-
 <!-- inputServer is a field for a password -->
 <!-- inputTextarea we define how wide we want the text area to be by setting the cols attribute. -->
+<!-- <h:selectOneRadio value="#{componentListing.selectOneRadioSelection}"/> means we will be transmitting user selection on the webpage back to InputComponentPageBean -->
+<!-- <f:selectItems
+* value="#{dessertDao.desserts}" supplies the list of the selection components.
+* With var="dessert" we specify a sort of loop variable like in the for each loop from basic Java. This is how we will able to access the items supplied by the dessertDao.
+* itemLabel="#{dessert.dessertName}". Specifying this attribute is going to determine what we show on the webpage to the user.
+* itemValue is the variable/value that should be submitted to the server side when the user makes a selection
+* itemDisabled="#{dessert.dessertName.startsWith('a')}". This condition would disable on the client side all items from the dessert list whose name starts with letter A -->
+<!-- f:selectItem
+selectItem is a singular form of f:selectItems. It's used to hold a hard coded placeholder text. Note that it's not the only purpose of this component, it can hold dynamic values as well.
+ By setting noSelectionOption to true, we've specified to the faceless runtime that whenever this option is submitted from the selectItem it can be disregarded.-->
 <h:body>
     <h:form>
         <h:panelGrid columns="2">
@@ -16,8 +25,27 @@
             <h:inputSecret id="password"/>
             <h:outputLabel for="textArea" value="This is a text area"/>
             <h:inputTextarea id="textArea" cols="8" rows="10"/>
+            <h:outputLabel for="oneRadio" value="This is a selectOneRadio"/>
+            <h:selectOneRadio id="oneRadio" value="#{componentListing.selectOneRadioSelection}">
+                <f:selectItem noSelectionOption="true" itemLabel="--Please select a dessert"/>
+                <f:selectItems itemDisabled="#{dessert.dessertName.startsWith('a')}" itemValue="#{dessert.dessertId}" itemDescription="#{dessert.dessertName}" itemLabel="#{dessert.dessertName}" var="dessert" value="#{dessertDao.desserts}"/>
+            </h:selectOneRadio>
+            <h:outputLabel for="oneMenu" value="This is a selectOneMenu"/>
+            <h:selectOneMenu id="oneMenu" value="#{componentListing.selectOneMenu}">
+                <f:selectItem noSelectionOption="true" itemLabel="--Please select a dessert"/>
+                <f:selectItems itemDisabled="#{dessert.dessertName.startsWith('a')}" itemValue="#{dessert.dessertId}" itemDescription="#{dessert.dessertName}" itemLabel="#{dessert.dessertName}" var="dessert" value="#{dessertDao.desserts}"/>
+            </h:selectOneMenu>
+            <h:outputLabel for="oneListBox" value="This is a selectOneListBox"/>
+            <h:selectOneListbox id="oneListBox" value="#{componentListing.selectListBoxSelection}">
+                <f:selectItem noSelectionOption="true" itemLabel="--Please select a dessert"/>
+                <f:selectItems itemDisabled="#{dessert.dessertName.startsWith('a')}" itemValue="#{dessert.dessertId}" itemDescription="#{dessert.dessertName}" itemLabel="#{dessert.dessertName}" var="dessert" value="#{dessertDao.desserts}"/>
+            </h:selectOneListbox>
+            <h:outputLabel for="manyListBox" value="This is a selectManyListBox"/>
+            <h:selectManyCheckbox id="manyListBox" value="#{componentListing.selectManyCheckboxSelections}">
+                <f:selectItems itemDisabled="#{dessert.dessertName.startsWith('a')}" itemValue="#{dessert.dessertId}" itemDescription="#{dessert.dessertName}" itemLabel="#{dessert.dessertName}" var="dessert" value="#{dessertDao.desserts}"/>
+                <f:selectItem noSelectionOption="true" itemLabel="--Please select a dessert"/>
+            </h:selectManyCheckbox>
         </h:panelGrid>
     </h:form>
-
 </h:body>
 </html>
