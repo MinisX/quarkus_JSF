@@ -5,12 +5,16 @@ import dto.Dessert;
 import java.math.BigDecimal;
 import java.util.LinkedList;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.component.html.HtmlInputSecret;
 import javax.inject.Named;
 
 @RequestScoped
 @Named("componentListing")
 public class InputComponentPageBean {
+
+    private HtmlInputSecret passwordField;
 
     private String password1;
 
@@ -35,6 +39,12 @@ public class InputComponentPageBean {
     private BigDecimal moneyInput;
     
     private Dessert selectedDessert;
+
+    @PostConstruct
+    public void init(){
+        passwordField = new HtmlInputSecret();
+        passwordField.setDisabled(true);
+    }
 
     public String getPassword1() {
         return password1;
@@ -133,6 +143,11 @@ public class InputComponentPageBean {
         this.selectedDessert = selectedDessert;
     }
 
-   
+    public HtmlInputSecret getPasswordField() {
+        return passwordField;
+    }
 
+    public void setPasswordField(HtmlInputSecret passwordField) {
+        this.passwordField = passwordField;
+    }
 }

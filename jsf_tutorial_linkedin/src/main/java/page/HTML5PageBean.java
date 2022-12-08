@@ -1,4 +1,4 @@
-package bean;
+package page;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;

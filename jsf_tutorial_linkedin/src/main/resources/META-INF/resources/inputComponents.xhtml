@@ -22,7 +22,7 @@ selectItem is a singular form of f:selectItems. It's used to hold a hard coded p
     <h:form>
         <h:panelGrid columns="2">
             <h:outputLabel for="password" value="Please enter a password:"/>
-            <h:inputSecret id="password"/>
+            <h:inputSecret id="password" binding="#{componentListing.passwordField}"/>
             <h:outputLabel for="textArea" value="This is a text area"/>
             <h:inputTextarea id="textArea" cols="8" rows="10"/>
             <h:outputLabel for="oneRadio" value="This is a selectOneRadio"/>
