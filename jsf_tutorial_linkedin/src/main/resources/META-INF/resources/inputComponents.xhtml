@@ -26,9 +26,9 @@ selectItem is a singular form of f:selectItems. It's used to hold a hard coded p
             <h:outputLabel for="textArea" value="This is a text area"/>
             <h:inputTextarea id="textArea" cols="8" rows="10"/>
             <h:outputLabel for="oneRadio" value="This is a selectOneRadio"/>
-            <h:selectOneRadio id="oneRadio" value="#{componentListing.selectOneRadioSelection}">
+            <h:selectOneRadio converter="#{dessertConverter}" id="oneRadio" value="#{componentListing.selectedDessert}">
                 <f:selectItem noSelectionOption="true" itemLabel="--Please select a dessert"/>
-                <f:selectItems itemDisabled="#{dessert.dessertName.startsWith('a')}" itemValue="#{dessert.dessertId}" itemDescription="#{dessert.dessertName}" itemLabel="#{dessert.dessertName}" var="dessert" value="#{dessertDao.desserts}"/>
+                <f:selectItems itemDisabled="#{dessert.dessertName.startsWith('a')}" itemValue="#{dessert}" itemDescription="#{dessert.dessertName}" itemLabel="#{dessert.dessertName}" var="dessert" value="#{dessertDao.desserts}"/>
             </h:selectOneRadio>
             <h:outputLabel for="oneMenu" value="This is a selectOneMenu"/>
             <h:selectOneMenu id="oneMenu" value="#{componentListing.selectOneMenu}">
@@ -53,6 +53,10 @@ selectItem is a singular form of f:selectItems. It's used to hold a hard coded p
             <h:inputText converter="javax.faces.BigDecimal" converterMessage="We can't turn that to money: #{component.getSubmittedValue()}" value="#{componentListing.moneyInput}" id="bigDecimalInput"/>
             <h:outputLabel for="bigDecimalOuput" value="This is money output (BigDecimal)"/>
             <h:outputText converter="javax.faces.BigDecimal" value="#{componentListing.moneyInput}" id="bigDecimalOuput"/>
+            <h:outputLabel for="selectedDessertOutput" value="This is the selected Dessert"/>
+            <h:outputText value="#{componentListing.selectedDessert}" converter="#{dessertConverter}" id="selectedDessertOutput"/>
+            <h:outputLabel for="submitButton" value="Submit this form"/>
+            <h:commandButton id="submitButton" value="Submit"/>
         </h:panelGrid>
     </h:form>
 </h:body>

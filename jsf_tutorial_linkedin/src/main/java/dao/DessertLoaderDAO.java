@@ -54,4 +54,14 @@ public class DessertLoaderDAO {
         return dessertToReturn;
     }
 
+    public Dessert findDessertByName(String dessertName) {
+
+        for (Dessert dessert : desserts) {
+            if (dessert.getDessertName().equals(dessertName)) {
+                return dessert;
+            }
+        }
+
+        return null;
+    }
 }
