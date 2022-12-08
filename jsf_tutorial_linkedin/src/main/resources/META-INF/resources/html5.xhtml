@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:jsf="http://xmlns.jcp.org/jsf"
-      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough" xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
     <title>HTML5 Demo</title>
@@ -11,12 +11,16 @@
 <h:body>
     <h:form>
         <h:panelGrid columns="2">
-            <h:outputLabel value="Our HTML5 DatePicker"/>
-            <input type="datetime-local" jsf:id="dateTimeComponent" jsf:value="#{html5Bean.dateIn}"/>
+            <h:outputText value="Our HTML5 DatePicker"/>
+            <input type="datetime-local" jsf:id="dateTimeComponent" jsf:value="#{html5Bean.dateObjectIn}">
+                <f:convertDateTime timeStyle="full" pattern="YYYY-MM-dd'T'HH:m" type="both"/>
+            </input>
             <h:commandButton value="Save Date" action="#{html5Bean.transformDates()}"/>
-            <h:outputText value="#{html5Bean.dateOut}"/>
-            <h:outputLabel value="Our Pass-Through attribute"/>
-            <h:inputText p:placeholder="This is placeholder text"/>
+            <h:outputText value="#{html5Bean.dateObjectIn}">
+                <f:convertDateTime dateStyle="short" timeStyle="short"/>
+            </h:outputText>
+            <h:outputLabel for="inputText" value="Our Pass-Through attribute"/>
+            <h:inputText id="inputText" p:placeholder="This is placeholder text"/>
         </h:panelGrid>
     </h:form>
 </h:body>
