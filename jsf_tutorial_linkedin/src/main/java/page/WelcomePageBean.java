@@ -5,8 +5,10 @@ import bean.SampleViewScopedBean;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.event.AjaxBehaviorEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.logging.Logger;
 
 @Named("welcomePageBean")
 // This scope specifies that this backing bean class should be instantiated at the beginning of
@@ -47,6 +49,14 @@ public class WelcomePageBean {
         // Here we are transmitting the list of dogs from bean.SampleViewScopedBean
         FacesContext.getCurrentInstance().getExternalContext().getFlash().put("transmittedVariable", viewBean.getDogs().get(0));
         return "flashscope.xhtml?faces-redirect=true";
+    }
+
+    public void ajaxTriggered(){
+        Logger.getAnonymousLogger().info("This is an ajax-triggered log statement");
+    }
+
+    public void alsoAjaxTriggered(AjaxBehaviorEvent abe){
+
     }
 
     public void isRefreshed(){
