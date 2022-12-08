@@ -49,6 +49,10 @@ selectItem is a singular form of f:selectItems. It's used to hold a hard coded p
             <h:commandButton id="commandButton" value="Pass a Parameter" action="#{componentListing.acceptAString('A JSF Tutorial')}"/>
             <h:outputText value="This is a cookie object"/>
             #{cookie}
+            <h:outputLabel for="bigDecimalInput" value="This is money input (BigDecimal)"/>
+            <h:inputText converter="javax.faces.BigDecimal" converterMessage="We can't turn that to money: #{component.getSubmittedValue()}" value="#{componentListing.moneyInput}" id="bigDecimalInput"/>
+            <h:outputLabel for="bigDecimalOuput" value="This is money output (BigDecimal)"/>
+            <h:outputText converter="javax.faces.BigDecimal" value="#{componentListing.moneyInput}" id="bigDecimalOuput"/>
         </h:panelGrid>
     </h:form>
 </h:body>
