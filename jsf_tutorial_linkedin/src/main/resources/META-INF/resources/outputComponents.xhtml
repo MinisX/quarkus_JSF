@@ -19,9 +19,24 @@
             <h:outputText value="This is in a panelGroup"/>
         </h:panelGroup>
 
+        <br/>
+
         <ui:repeat value="#{['Corgi', 'Dalmatian', 'hound']}" var="dog">
             <h:outputText value="#{dog}"/><br/>
         </ui:repeat>
+
+        <br/>
+
+        <h:panelGroup layout="block" id="dataTableDiv">
+            <h:dataTable border="6" value="#{dessertDao.desserts}" var="dessert">
+                <h:column>
+                    <f:facet name="header">
+                        Dessert Name
+                    </f:facet>
+                    <h:outputText value="#{dessert.dessertName}"/>
+                </h:column>
+            </h:dataTable>
+        </h:panelGroup>
 
     </h:body>
 <!-- Span is done this way: <h:panelGroup id="thisOurGroup">
