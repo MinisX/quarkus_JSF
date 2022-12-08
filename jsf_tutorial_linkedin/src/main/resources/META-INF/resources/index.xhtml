@@ -17,7 +17,7 @@
   <h:body>
       <!-- An HTML form is a section of a document which contains controls such as text fields,
       password fields, checkboxes, radio buttons, submit button, menus etc. -->
-      <h:form>
+      <h:form prependId="false">
           <!-- In JSF , “h:panelGrid” tag is used to generate HTML table tags to place JSF components in rows and columns layout,
           from left to right, top to bottom. -->
 
@@ -25,7 +25,10 @@
           <!-- On line 20 we tie the outputLabel to inputText with for attribute. This way when we press on the label, it activates the input field-->
           <h:panelGrid columns="2">
               <h:outputLabel for="inputTextBox" value ="Enter a name here" />
-              <h:inputText disabled="false" value="#{welcomePageBean.welcomeUserName}" id="inputTextBox"/>
+              <h:panelGrid columns="2">
+                  <h:inputText disabled="false" value="#{welcomePageBean.welcomeUserName}" id="inputTextBox"/>
+                  <h:message for="inputTextBox" showDetail="true" showSummary="true"/>
+              </h:panelGrid>
               <h:commandButton value="Say Hello" action="#{welcomePageBean.sayHello()}"/>
               <h:outputText value="#{welcomePageBean.completedGreeting}"/>
               <h:commandButton value="Navigate!" action="#{welcomePageBean.navigateToFlashPage()}"/>

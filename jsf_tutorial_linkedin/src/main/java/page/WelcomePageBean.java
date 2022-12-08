@@ -3,6 +3,7 @@ package page;
 import bean.SampleViewScopedBean;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -36,6 +37,9 @@ public class WelcomePageBean {
 
     public void sayHello(){
         completedGreeting = "Hello, " + this.welcomeUserName;
+        FacesMessage messageToQ = new FacesMessage(FacesMessage.SEVERITY_INFO, completedGreeting, "We're so happy to see you");
+        // Send the message to index.xhtml inputTextBox
+        FacesContext.getCurrentInstance().addMessage("inputTextBox", messageToQ);
     }
 
     // Here we use FlashScope to transmit a variable to another page
