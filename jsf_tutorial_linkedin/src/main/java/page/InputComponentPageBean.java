@@ -5,6 +5,7 @@ import dto.Dessert;
 import java.math.BigDecimal;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.component.html.HtmlInputSecret;
@@ -44,6 +45,10 @@ public class InputComponentPageBean {
     public void init(){
         passwordField = new HtmlInputSecret();
         passwordField.setDisabled(true);
+    }
+
+    public void acceptAString(String parameter){
+        Logger.getAnonymousLogger().info("We received - " + parameter);
     }
 
     public String getPassword1() {

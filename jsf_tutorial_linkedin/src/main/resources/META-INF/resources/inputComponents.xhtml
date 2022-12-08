@@ -45,6 +45,10 @@ selectItem is a singular form of f:selectItems. It's used to hold a hard coded p
                 <f:selectItems itemDisabled="#{dessert.dessertName.startsWith('a')}" itemValue="#{dessert.dessertId}" itemDescription="#{dessert.dessertName}" itemLabel="#{dessert.dessertName}" var="dessert" value="#{dessertDao.desserts}"/>
                 <f:selectItem noSelectionOption="true" itemLabel="--Please select a dessert"/>
             </h:selectManyCheckbox>
+            <h:outputLabel for="commandButton" value="This is a Command Button"/>
+            <h:commandButton id="commandButton" value="Pass a Parameter" action="#{componentListing.acceptAString('A JSF Tutorial')}"/>
+            <h:outputLabel value="This is a cookie object"/>
+            #{cookie}
         </h:panelGrid>
     </h:form>
 </h:body>
