@@ -21,7 +21,7 @@
 
         <br/>
 
-        <ui:repeat value="#{['Corgi', 'Dalmatian', 'hound']}" var="dog">
+        <ui:repeat value="#{['Corgi', 'Dalmatian', 'hound'].stream().filter(dogBreed -> dogBreed.startsWith('C')).toList()}" var="dog">
             <h:outputText value="#{dog}"/><br/>
         </ui:repeat>
 
