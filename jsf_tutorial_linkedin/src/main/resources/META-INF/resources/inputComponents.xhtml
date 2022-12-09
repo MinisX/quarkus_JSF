@@ -56,7 +56,7 @@ selectItem is a singular form of f:selectItems. It's used to hold a hard coded p
             <h:outputLabel for="bigDecimalOuput" value="This is money output (BigDecimal)"/>
             <h:outputText converter="javax.faces.BigDecimal" value="#{componentListing.moneyInput}" id="bigDecimalOuput"/>
             <h:outputLabel for="selectedDessertOutput" value="This is the selected Dessert"/>
-            <h:outputText value="#{componentListing.selectedDessert}" converter="#{dessertConverter}" id="selectedDessertOutput"/>
+            <h:outputText escape="true" value="#{componentListing.selectedDessert}" converter="#{dessertConverter}" id="selectedDessertOutput"/>
             <h:outputLabel for="submitButton" value="Submit this form"/>
             <h:commandButton id="submitButton" value="Submit"/>
         </h:panelGrid>
